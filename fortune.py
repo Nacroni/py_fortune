@@ -1,22 +1,31 @@
 #!/usr/bin/env python3
 import argparse, random, os, sys
+import logging as log
 
-parser = argparse.ArgumentParser('fortune', description='Python-based customizable fortune', epilog='thanks! ; main Branch ; updated 2024-12-17 ; by Nacroni')
-parser.add_argument('-v', '--verbose', help='not a good verbose mode', action='store_true')
-args = parser.parse_args()
-verbose_enable = args.verbose
+# verbose (https://stackoverflow.com/questions/5980042/how-to-implement-the-verbose-or-v-option-into-a-script/15412863#15412863)
 
-if verbose_enable:print('Checking ./fortune/ directory...')
+p = argparse.ArgumentParser()
+p.add_argument('--verbose', '-v', action='count', default=0)
+args = p.parse_args()
+if args.verbose:
+    log.basicConfig(format="%(levelname)s: %(message)s", level=log.DEBUG)
+    log.info("Verbose output enabled!")
+else:
+    log.basicConfig(format="%(levelname)s: %(message)s")
+
+
+# main script
 file_list = os.listdir('./fortune/')
+log.info('Checked ./fortune/ directory!')
 
 chosen_file = random.choice(file_list)
-if verbose_enable:print(f'Chosen File: {chosen_file}')
+log.info(f'Chosen File: {chosen_file}')
 
 if chosen_file.startswith('.'):
-    if verbose_enable: print('File is hidden, restarting...')
+    log.info('File is hidden, restarting...')
     os.execv(sys.argv[0], sys.argv)
 
-file = open(f'./fortune/{chosen_file}', 'r')
-text = file.read()
+fortune = open(f'./fortune/{chosen_file}', 'r')
+log.info('Assigning & Reading chosen file...')
 
-print(text)
+print(fortune.read())
