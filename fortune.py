@@ -5,7 +5,7 @@ import logging as log
 # verbose (https://stackoverflow.com/questions/5980042/how-to-implement-the-verbose-or-v-option-into-a-script/15412863#15412863)
 
 p = argparse.ArgumentParser()
-p.add_argument('--verbose', '-v', action='count', default=0)
+p.add_argument('-v', '--verbose', help='enables verbose mode', action='count', default=0)
 args = p.parse_args()
 if args.verbose:
     log.basicConfig(format="%(levelname)s: %(message)s", level=log.DEBUG)
@@ -26,6 +26,6 @@ if chosen_file.startswith('.'):
     os.execv(sys.argv[0], sys.argv)
 
 fortune = open(f'./fortune/{chosen_file}', 'r')
-log.info('Assigning & Reading chosen file...')
+log.info('Assigning & reading chosen file...')
 
 print(fortune.read())
