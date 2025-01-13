@@ -37,4 +37,4 @@ You can create cookies by creating a file in the [`cookies/`](cookies/) director
 
 ### Offensive Cookies
 
-You can create offensive cookies by creating a file in the [`cookies/`](directory). It must start with `o.` in order to be identified as an offensive cookie.
+You can create offensive cookies by creating a file in the [`cookies/`](cookies/) directory. It must start with `o.` in order to be identified as an offensive cookie.
