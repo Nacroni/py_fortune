@@ -165,6 +165,9 @@ cython_debug/
 .vscode
 
 # Fortune Files
-fortune/*
+cookies/*
+cookies/offensive/*
 
-!fortune/hello_world.txt
+!cookies/hello_world.txt
+!cookies/example.txt
+!cookies/o.example.txt

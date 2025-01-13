@@ -1,0 +1,1 @@
+This is an example cookie, you can modify it as you wish. The cookie folder can be found at the root of the repository, named 'cookies/'. Have fun! 

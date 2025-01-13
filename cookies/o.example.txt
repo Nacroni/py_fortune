@@ -1,0 +1,1 @@
+This is an example offensive cookie, you can modify it as you wish. The offensive cookie folder can be found inside the `cookies/` directory as `cookies/offensive/`. Have fun! 
